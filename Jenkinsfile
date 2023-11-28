@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent {label "k8s-jnlp-jdk17"}
   stages {
     stage('trivy check') {
       steps {
