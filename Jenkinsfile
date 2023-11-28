@@ -9,7 +9,7 @@ pipeline {
     stage('trivy check') {
       steps {
         // sleep 360
-        sh 'trivy image --severity HIGH,CRITICAL sumergerepo/automated-reconciliation-module-test:alpha'
+        sh 'trivy --timeout 900s image --severity HIGH,CRITICAL sumergerepo/automated-reconciliation-module-test:alpha'
       }
     }
 
