@@ -8,7 +8,7 @@ pipeline {
     // }
     stage('trivy check') {
       steps {
-        sleep 10000
+        // sleep 360
         sh 'trivy image --severity HIGH,CRITICAL sumergerepo/automated-reconciliation-module-test:alpha'
       }
     }
