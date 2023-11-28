@@ -1,5 +1,5 @@
 pipeline {
-  agent {label "k8s-jnlp-jdk17"}
+  agent {label "inbound-agent-jdk11"}
   stages {
     stage('git') {
       steps {
