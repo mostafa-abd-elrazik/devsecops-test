@@ -10,7 +10,7 @@ pipeline {
       steps {
         // sleep 360
 
-        // sh 'podman build -t docker.idp.system.sumerge.local/dummy-image .'
+        sh 'podman build -t docker.idp.system.sumerge.local/dummy-image .'
         // sh 'buildah build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image:0.1 .'
         sh 'trivy image --insecure  --timeout 900s  --severity HIGH,CRITICAL docker.idp.system.sumerge.local/dummy-image:0.1'
         // sh 'podman version'
