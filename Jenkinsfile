@@ -9,7 +9,8 @@ pipeline {
     stage('trivy check') {
       steps {
         // sleep 360
-        sh 'trivy --timeout 900s image --severity HIGH,CRITICAL sumergerepo/automated-reconciliation-module-test:alpha'
+        sh 'podman build -t docker.idp.system.sumerge.local/dummy-image .'
+        sh 'trivy --timeout 900s image --severity HIGH,CRITICAL docker.idp.system.sumerge.local/dummy-image'
       }
     }
 
