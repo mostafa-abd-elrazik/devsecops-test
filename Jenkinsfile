@@ -9,10 +9,14 @@ pipeline {
     stage('trivy check') {
       steps {
         // sleep 360
+
+        sh 'buildah build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image:0.1 .'
+        sh 'trivy image --insecure  --timeout 900s  --severity HIGH,CRITICAL docker.idp.system.sumerge.local/dummy-image:0.1'
         // sh 'podman version'
         // sh 'podman build -t docker.idp.system.sumerge.local/dummy-image .'
-        sh 'buildah build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image .'
-        sh 'trivy --timeout 900s image --severity HIGH,CRITICAL docker.idp.system.sumerge.local/dummy-image'
+        // sh 'buildah images'
+        // sh 'buildah build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image .'
+        // sh 'trivy --timeout 900s image --severity HIGH,CRITICAL docker.idp.system.sumerge.local/dummy-image'
       }
     }
 
