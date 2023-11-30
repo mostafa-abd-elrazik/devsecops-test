@@ -14,7 +14,7 @@ pipeline {
 location = "docker.idp.system.sumerge.local" 
 insecure = true  
 """
-        sh 'cat /etc/containers/registries.conf'
+        // sh 'cat /etc/containers/registries.conf'
         sh 'podman build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image .'
         // sh 'podman build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image .'
         // sh 'buildah build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image:0.1 .'
