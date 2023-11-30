@@ -12,8 +12,7 @@ pipeline {
         sh """cat <<EOF >>/etc/containers/registries.conf 
 [[registry]] 
 location = "docker.idp.system.sumerge.local" 
-insecure = true 
-EOF 
+insecure = true  
 """
         sh 'cat /etc/containers/registries.conf'
         sh 'podman build  -t docker.idp.system.sumerge.local/dummy-image .'
