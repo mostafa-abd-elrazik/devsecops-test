@@ -9,11 +9,11 @@ pipeline {
     stage('trivy check') {
       steps {
         // sleep 360
-        sh 'cat <<EOF >>/etc/containers/registries.conf
-        [[registry]]
-        location = "docker.idp.system.sumerge.local"
-        insecure = true
-        EOF
+        sh 'cat <<EOF >>/etc/containers/registries.conf \
+        [[registry]] \
+        location = "docker.idp.system.sumerge.local" \
+        insecure = true \
+        EOF \
         '
         sh 'podman build  -t docker.idp.system.sumerge.local/dummy-image .'
         // sh 'podman build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image .'
