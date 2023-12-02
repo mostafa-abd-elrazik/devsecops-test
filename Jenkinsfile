@@ -18,7 +18,7 @@ insecure = true
         sh 'podman build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image .'
         // sh 'podman build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image .'
         // sh 'buildah build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image:0.1 .'
-        sh 'trivy image --insecure  --timeout 900s  --severity HIGH,CRITICAL http://docker.idp.system.sumerge.local/slave-trivy:latest'
+        sh 'trivy image --insecure  --timeout 7200s  --severity HIGH,CRITICAL http://docker.idp.system.sumerge.local/slave-trivy:latest'
         // sh 'podman version'
         // sh 'buildah images'
         // sh 'buildah build --tls-verify=false -t docker.idp.system.sumerge.local/dummy-image .'
